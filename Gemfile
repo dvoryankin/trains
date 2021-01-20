@@ -43,6 +43,7 @@ group :development do
 
   gem 'pry-rails'
   gem 'awesome_print'
+  gem 'faker'
 end
 
 group :test do
