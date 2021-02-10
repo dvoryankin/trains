@@ -16,3 +16,9 @@ end
     number: Faker::Address.building_number
   )
 end
+
+10.times do
+  Route.create(
+    name: Faker::Address.city
+  )
+end
