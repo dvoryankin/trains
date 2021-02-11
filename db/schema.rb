@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_02_11_113352) do
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "railway_station_id"
-    t.index ["railway_station_id"], name: "index_trains_on_railway_station_id"
+    t.bigint "current_station_id"
+    t.index ["current_station_id"], name: "index_trains_on_current_station_id"
   end
 
 end
