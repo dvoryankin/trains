@@ -22,3 +22,9 @@ end
     name: Faker::Address.city
   )
 end
+
+10.times do
+  User.create(
+    name: Faker::Movies::StarWars.character
+  )
+end
