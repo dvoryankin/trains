@@ -37,7 +37,6 @@ class RoutesController < ApplicationController
     @route.destroy
 
     redirect_to routes_url, notice: 'Route was successfully destroyed.'
-    end
   end
 
   private
