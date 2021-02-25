@@ -15,15 +15,15 @@ ActiveRecord::Schema.define(version: 2021_02_16_091953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "railway_station_routes", force: :cascade do |t|
-    t.integer "railway_station_id"
-    t.integer "route_id"
-  end
-
   create_table "railway_stations", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "railway_stations_routes", force: :cascade do |t|
+    t.integer "railway_station_id"
+    t.integer "route_id"
   end
 
   create_table "routes", force: :cascade do |t|
