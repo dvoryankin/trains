@@ -1,0 +1,22 @@
+<ul>
+  <li>Coupe:
+    <% if carriages.coupe.empty? %>
+      cars of this type have no train
+    <% else %>
+      <%= carriages.coupe.count %><br>
+      seats:
+      <%= carriages.coupe.sum_upper_seats %> upper,
+      <%= carriages.coupe.sum_lower_seats %> lower
+    <% end %>
+  </li>
+  <li>Economy:
+    <% if carriages.economy.empty? %>
+      cars of this type have no train
+    <% else %>
+      <%= carriages.economy.count %><br>
+      seats:
+      <%= carriages.economy.sum_upper_seats %> upper,
+      <%= carriages.economy.sum_lower_seats %> lower
+    <% end %>
+  </li>
+</ul>

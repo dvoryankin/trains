@@ -23,5 +23,14 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Carriages:</strong>
+  <% if @train.carriages.empty? %>
+    train has no carriages
+  <% else %>
+    <%= render 'carriages', carriages: @train.carriages %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
