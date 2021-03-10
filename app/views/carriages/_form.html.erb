@@ -1,4 +1,4 @@
-<%= form_for(carriage) do |f| %>
+<%= form_for(carriage.becomes(Carriage)) do |f| %>
   <%= render 'common/errors', resource: carriage %>
 
   <div class="field">
@@ -12,8 +12,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :kind, 'Type' %>
-    <%= f.select :kind, Carriage::KINDS %>
+    <%= f.label :side_upper_seats %>
+    <%= f.text_field :side_upper_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :side_lower_seats %>
+    <%= f.text_field :side_lower_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sitting_seats %>
+    <%= f.text_field :sitting_seats %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type, 'Type' %>
+    <%= f.select :type, Carriage::TYPES %>
   </div>
 
   <div class="field">

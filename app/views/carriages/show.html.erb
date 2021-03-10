@@ -2,18 +2,10 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @carriage.kind %>
+  <%= @carriage.type %>
 </p>
 
-<p>
-  <strong>Upper seats:</strong>
-  <%= @carriage.upper_seats %>
-</p>
-
-<p>
-  <strong>Lower seats:</strong>
-  <%= @carriage.lower_seats %>
-</p>
+<%= render "#{@carriage.type.underscore}", carriage: @carriage %>
 
 <p>
   <strong>Train:</strong>
