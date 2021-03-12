@@ -5,4 +5,12 @@ class Train < ApplicationRecord
   has_many :carriages
 
   validates :number, presence: true
+
+  def count_seats_by_type(carriage_type, seats_type)
+    carriages.where(type: carriage_type).sum(seats_type)
+  end
+
+  def count_carriages_by_type(carriage_type)
+    carriages.where(type: carriage_type).count
+  end
 end

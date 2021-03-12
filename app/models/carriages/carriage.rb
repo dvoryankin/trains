@@ -21,8 +21,6 @@ class Carriage < ApplicationRecord
   scope :economy,  -> { where(type: 'EconomyCarriage') }
   scope :sitting,  -> { where(type: 'SittingCarriage') }
   scope :business, -> { where(type: 'BusinessCarriage') }
-  scope :sum_upper_seats, -> { sum(:upper_seats) }
-  scope :sum_lower_seats, -> { sum(:lower_seats) }
   scope :ordered, ->(asc=true) { order(number: asc ? :asc : :desc) }
 
   private

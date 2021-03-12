@@ -4,24 +4,31 @@
       <%= link_to carriage.number, carriage_path(carriage) %>
     <% end %>
   </li>
-  <li>Coupe:
-    <% if carriages.coupe.empty? %>
-      cars of this type have no train
-    <% else %>
-      <%= carriages.coupe.count %><br>
-      seats:
-      <%= carriages.coupe.sum_upper_seats %> upper,
-      <%= carriages.coupe.sum_lower_seats %> lower
-    <% end %>
-  </li>
-  <li>Economy:
-    <% if carriages.economy.empty? %>
-      cars of this type have no train
-    <% else %>
-      <%= carriages.economy.count %><br>
-      seats:
-      <%= carriages.economy.sum_upper_seats %> upper,
-      <%= carriages.economy.sum_lower_seats %> lower
-    <% end %>
-  </li>
 </ul>
+
+<table>
+  <thead>
+  <tr>
+    <th>Type carriage</th>
+    <th>Number cars</th>
+    <th>Upper</th>
+    <th>Lower</th>
+    <th>Side upper</th>
+    <th>Side lower</th>
+    <th>Sitting</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% carriages.map(&:type).uniq.each do |carriage_type| %>
+    <tr>
+      <td><%= carriage_type %></td>
+      <td><%= @train.count_carriages_by_type(carriage_type) %></td>
+      <td><%= @train.count_seats_by_type(carriage_type, :upper_seats) %></td>
+      <td><%= @train.count_seats_by_type(carriage_type, :lower_seats) %></td>
+      <td><%= @train.count_seats_by_type(carriage_type, :side_upper_seats) %></td>
+      <td><%= @train.count_seats_by_type(carriage_type, :side_lower_seats) %></td>
+      <td><%= @train.count_seats_by_type(carriage_type, :sitting_seats) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
