@@ -9,17 +9,16 @@ class RailwayStation < ApplicationRecord
 
   def update_position(route, position)
     station = route_station(route)
-    station.update(position: position) unless station.nil?
+    station.update(position: position) if station
   end
 
   def position_in(route)
-    station = route_station(route)
-    station.position unless station.nil?
+    route_station(route).try(:position)
   end
 
   private
 
   def route_station(route)
-    railway_stations_routes.where(route_id: route).first
+    @route_station ||= railway_stations_routes.where(route_id: route).first
   end
 end

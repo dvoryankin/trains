@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :railway_stations
+  resources :railway_stations do
+    patch :update_position, on: :member
+  end
   resources :trains
   resources :routes
   resources :carriages
