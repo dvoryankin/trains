@@ -14,6 +14,7 @@
     <thead>
     <th>Name</th>
     <th>Position</th>
+    <th>Arrival - Departure</th>
     </thead>
     <tbody>
     <% @route.railway_stations.ordered.each do |station|  %>
@@ -22,6 +23,14 @@
         <td>
           <%= form_tag update_position_railway_station_path(station), method: :patch do %>
             <%= number_field_tag :position, station.position_in(@route) %>
+            <%= hidden_field_tag :route_id, @route.id %>
+            <%= submit_tag 'edit' %>
+          <% end %>
+        </td>
+        <td>
+          <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+            <%= time_field_tag :arrival, station.time(@route, :arrival) %>
+            <%= time_field_tag :departure, station.time(@route, :departure) %>
             <%= hidden_field_tag :route_id, @route.id %>
             <%= submit_tag 'edit' %>
           <% end %>
