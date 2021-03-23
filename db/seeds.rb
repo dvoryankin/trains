@@ -18,21 +18,7 @@ end
 end
 
 10.times do
-  Route.create(
-    name: Faker::Address.city
-  )
-end
-
-10.times do
   User.create(
     name: Faker::Movies::StarWars.character
-  )
-end
-
-Ticket.create(number: Faker::Number.number(digits: 10), user_id: User.first.id, train_id: Train.first.id)
-
-10.times do
-  Ticket.create(
-    number: Faker::Number.number(digits: 10)
   )
 end

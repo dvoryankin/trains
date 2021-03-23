@@ -17,7 +17,7 @@
     <th>Arrival - Departure</th>
     </thead>
     <tbody>
-    <% @route.railway_stations.ordered.each do |station|  %>
+    <% @route.railway_stations.each do |station|  %>
       <tr>
         <td><%= station.title %></td>
         <td>
